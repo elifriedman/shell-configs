@@ -29,8 +29,14 @@ function mkcd {
     cd "$@"
 }
 
+PS1_SCRIPT=$HOME/shell-configs/ps1.py
 
-PS1='$(echo "\033[1;34m$($HOME/ps1.py) \$ \033[00m")'
+PS1='$(echo "\033[1;34m$($PS1_SCRIPT) \$ \033[00m")'
+
+# Show only the last part of the current directory as part of prompt:
+function nopath {
+    PS1='$(echo "\033[1;34m../$($PS1_SCRIPT) \$ \033[00m")'
+}
 
 # use this to match all cpp and h files (useful for git adding)
 ch="*.[ch]*"

@@ -9,7 +9,7 @@ if len(s) > 30:
 if os.system("git rev-parse 2> /dev/null") == 0:
     branch = os.popen("git rev-parse --abbrev-ref HEAD").read()
     branch = branch.strip()
-    s = s + " [" + branch + "]"
+    s = s + " \033[0;34m[" + branch + "]\033[1;34m"
 print s,
 
 
