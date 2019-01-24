@@ -17,12 +17,6 @@ set backspace=indent,eol,start
 set vb t_vb=""
 colorscheme default
 
-" Creates an include guard around
-" Usage: write filename of header, hit ctrl-i, include statement
-" with include guard appears
-map <C-i> 0ywi#include <A>O#fifndef INCLUDED_pBgUwjo#dendif
-
-" Highlight lines that are too long
 autocmd BufRead,BufNewFile   *.c,*.h,*.cpp au BufWinEnter * let w:m1=matchadd ('Search', '\%<80v.\%>76v', -1)
 autocmd BufRead,BufNewFile   *.c,*.h,*.cpp au BufWinEnter * let w:m2=matchadd ('ErrorMsg', '\%>79v.\+', -1)
 
@@ -46,5 +40,5 @@ nnoremap <silent> <F9> :exec ":e ".(expand("%") =~ ".h$"
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
-inoremap {}     {}
-
+inoremap {} {}
+filetype plugin indent on
