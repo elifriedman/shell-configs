@@ -1,0 +1,26 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# install some basic packages
+sudo apt-get install vim git compizconfig-settings-manager tmux curl
+sudo apt-get install python-pip python3-pip python-dev python3-dev python-virtualenv
+sudo apt install compizconfig-settings-manager
+
+# set up vim
+cp $DIR/.vimrc ~/.vimrc
+
+# set up git
+git config --global user.email "friedm3@cooper.edu"
+git config --global user.name "Eli Friedman"
+
+# install docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce
+
+# set up workspaces
+sudo apt install gnome-tweak-tool gnome-shell-extensions
+wget https://github.com/zakkak/workspace-grid/releases/download/workspace-grid-for-3.30-b46/workspace-grid.mathematical.coffee.gmail.com.zip -O workspace-grid.zip
+unzip workspace-grid.zip -d ~/local/share/gnome-shell/extensions/workspace-grid@mathematical.coffee.gmail.com
+gnome-shell-extension-tool -e workspace-grid@mathematical.coffee.gmail.com
+killall -HUP gnome-shell # restart shell
