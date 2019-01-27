@@ -30,6 +30,14 @@ killall -HUP gnome-shell # restart shell
 
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[\"<Super>Right\"]"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[\"<Super>Left\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "[\"<Super>Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "[\"<Super>Down\"]"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "[\"<Shift><Super>Left\"]"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "[\"<Shift><Super>Right\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "[\"<Shift><Super>Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "[\"<Shift><Super>Down\"]"
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "[\"<Alt>Page_Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings unmaximize "[\"<Alt>Page_Down\"]"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left "[\"<Alt>Left\"]"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[\"<Alt>Right\"]"
 
