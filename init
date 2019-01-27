@@ -3,10 +3,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # install some basic packages
 sudo apt-get install vim git compizconfig-settings-manager tmux curl
 sudo apt-get install python-pip python3-pip python-dev python3-dev python-virtualenv
-sudo apt install compizconfig-settings-manager
 
-# set up vim
-cp $DIR/.vimrc ~/.vimrc
+# set up vim and tmux
+cp $DIR/.vimrc ~/
+cp $DIR/.tmux.conf ~/
+cp $DIR/.bash_profile ~/
+echo "source .bash_profile" >> ~/.bashrc
 
 # set up git
 git config --global user.email "friedm3@cooper.edu"
@@ -21,6 +23,13 @@ sudo apt-get install docker-ce
 # set up workspaces
 sudo apt install gnome-tweak-tool gnome-shell-extensions
 wget https://github.com/zakkak/workspace-grid/releases/download/workspace-grid-for-3.30-b46/workspace-grid.mathematical.coffee.gmail.com.zip -O workspace-grid.zip
-unzip workspace-grid.zip -d ~/local/share/gnome-shell/extensions/workspace-grid@mathematical.coffee.gmail.com
+mkdir -p ~/.local/share/gnome-shell/extensions/
+unzip workspace-grid.zip -d ~/.local/share/gnome-shell/extensions/workspace-grid@mathematical.coffee.gmail.com
 gnome-shell-extension-tool -e workspace-grid@mathematical.coffee.gmail.com
 killall -HUP gnome-shell # restart shell
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[\"<Super>Right\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[\"<Super>Left\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "[\"<Shift><Super>Left\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "[\"<Shift><Super>Right\"]"
+
