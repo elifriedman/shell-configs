@@ -19,6 +19,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
 sudo apt-get install docker-ce
+sudo usermod -aG docker $USER
 
 # set up workspaces
 sudo apt install gnome-tweak-tool gnome-shell-extensions
@@ -28,16 +29,16 @@ unzip workspace-grid.zip -d ~/.local/share/gnome-shell/extensions/workspace-grid
 gnome-shell-extension-tool -e workspace-grid@mathematical.coffee.gmail.com
 killall -HUP gnome-shell # restart shell
 
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[\"<Super>Right\"]"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[\"<Super>Left\"]"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "[\"<Super>Up\"]"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "[\"<Super>Down\"]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "[\"<Shift><Super>Left\"]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "[\"<Shift><Super>Right\"]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "[\"<Shift><Super>Up\"]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "[\"<Shift><Super>Down\"]"
-gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "[\"<Alt>Page_Up\"]"
-gsettings set org.gnome.desktop.wm.keybindings unmaximize "[\"<Alt>Page_Down\"]"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-left "[\"<Alt>Left\"]"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[\"<Alt>Right\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[\"<Alt>Right\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[\"<Alt>Left\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "[\"<Alt>Page_Up\", \"<Alt>Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "[\"<Alt>Down\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "[\"<Shift><Alt>Left\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "[\"<Shift><Alt>Right\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "[\"<Shift><Alt>Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "[\"<Shift><Alt>Down\"]"
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "[\"<Super>Page_Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings unmaximize "[\"<Super>Page_Down\"]"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left "[\"<Super>Left\"]"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[\"<Super>Right\"]"
 
