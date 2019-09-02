@@ -29,16 +29,35 @@ unzip workspace-grid.zip -d ~/.local/share/gnome-shell/extensions/workspace-grid
 gnome-shell-extension-tool -e workspace-grid@mathematical.coffee.gmail.com
 killall -HUP gnome-shell # restart shell
 
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[\"<Alt>Right\"]"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[\"<Alt>Left\"]"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "[\"<Alt>Page_Up\", \"<Alt>Up\"]"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "[\"<Alt>Down\"]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "[\"<Shift><Alt>Left\"]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "[\"<Shift><Alt>Right\"]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "[\"<Shift><Alt>Up\"]"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "[\"<Shift><Alt>Down\"]"
-gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "[\"<Super>Page_Up\"]"
-gsettings set org.gnome.desktop.wm.keybindings unmaximize "[\"<Super>Page_Down\"]"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-left "[\"<Super>Left\"]"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[\"<Super>Right\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[\"<Super>Right\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[\"<Super>Left\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "[\"<Super>Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "[\"<Super>Down\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "[\"<Shift><Super>Left\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "[\"<Shift><Super>Right\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "[\"<Shift><Super>Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "[\"<Shift><Super>Down\"]"
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "[\"<Alt>Up\", \"<Alt>Page_Up\"]"
+gsettings set org.gnome.desktop.wm.keybindings unmaximize "[\"<Alt>Down\", \"<Alt>Page_Down\"]"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left "[\"<Alt>Left\"]"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[\"<Alt>Right\"]"
 
+# if workspace-grid stops working, put the following text in ~/.config/autostart/restart_workspaces.desktop
+
+#[Desktop Entry]
+#Type=Application
+#Exec=/home/elif/.shell-configs/restart_workspaces
+#Hidden=false
+#NoDisplay=false
+#X-GNOME-Autostart-enabled=true
+#Name[en_IL]=Restart Workspace Grid
+#Name=Restart Workspace Grid
+#Comment[en_IL]=Restart Workspace Grid because gnome is silly and things break when computer sleeps
+#Comment=Restart Workspace Grid because gnome is silly and things break when computer sleeps
+
+# and the following in ~/.shell-configs/restart_workspaces
+
+##!/bin/bash
+#
+#gsettings set org.gnome.shell disable-user-extensions true
+#gsettings set org.gnome.shell disable-user-extensions false

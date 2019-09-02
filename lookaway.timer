@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts lookaway service every 20 minutes
+
+[Timer]
+OnUnitActiveSec=20m
+Unit=lookaway.service
+
+[Install]
+WantedBy=timers.target

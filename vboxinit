@@ -1,0 +1,15 @@
+1. Insert VirtualBox Guest Additions CD
+2. To sync the time, on a windows host run:
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" list vms
+
+to get the VM name and then
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" guestproperty set <VM Name> "/VirtualBox/GuestAdd/VBoxService/--timesync-interval" 10000
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" guestproperty set <VM Name> "/VirtualBox/GuestAdd/VBoxService/--timesync-min-adjust" 100
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" guestproperty set <VM Name> "/VirtualBox/GuestAdd/VBoxService/--timesync-set-on-restore" 1
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" guestproperty set <VM Name> "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold" 1000
+
+and on the guest turn off automatic time syncing and run:
+
+service vbox-add-service restart
