@@ -181,19 +181,12 @@ PS1_SCRIPT=$HOME/.shell-configs/ps1.py
 
 PS1='\[\033[1;34m\]$($PS1_SCRIPT) \[\033[0;34m\]$(parse_git_branch)\[\033[1;34m\]$ \[\033[00m\]'
 
-umask 037
-
 # To set the xterm font,
 # edit .SecureCRTstart
 
-alias remote="ssh $REMOTE"
-alias cpremote="scp "
-logcp() {
-    remote zip -r /tmp/xfer.zip logs/$1 -x .\* \*.git\* \*__pycache__\* \*.pyc \*policy_\[0-9\]\*.pkl
-    cpremote $KAHAN:/tmp/xfer.zip /tmp/
-    remote rm /tmp/xfer.zip
-    unzip /tmp/xfer.zip -d .
-    rm /tmp/xfer.zip
+calc ()
+{
+    python -c "print($1)"
 }
 
 # start tmux only if it hasn't been started
