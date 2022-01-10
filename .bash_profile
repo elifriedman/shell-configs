@@ -155,21 +155,35 @@ function cl {
     ls;
 }
 
+calc ()
+{
+    python3 -c "import math;print($1)"
+}
+
 alias ipy='ipython'
 
 # git alias
 alias gs='git status'
+alias gsc='gs -uno'
 alias gc='git commit'
+alias gcm='gc -m'
 alias gcl='git clone'
 alias gch='git checkout'
 alias ga='git add'
 alias gb='git branch'
+alias gbc='gb --show-current'
 alias gd='git diff'
+alias gconflicts='gd --name-only --diff-filter=U'
 alias gr='git remote -v'
 alias grb='git rebase'
+alias grm='git rm'
 alias gp='git push'
 alias gpl='git pull'
 alias gl='git log'
+
+alias o='sudo chown -R eli:eli .'
+alias a='source venv/bin/activate'
+
 
 # Set up PS1 with git branch
 
@@ -184,10 +198,6 @@ PS1='\[\033[1;34m\]$($PS1_SCRIPT) \[\033[0;34m\]$(parse_git_branch)\[\033[1;34m\
 # To set the xterm font,
 # edit .SecureCRTstart
 
-calc ()
-{
-    python -c "print($1)"
-}
 
 # start tmux only if it hasn't been started
 if [ -z "$TMUX" ]; then
