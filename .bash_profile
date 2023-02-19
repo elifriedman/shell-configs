@@ -183,7 +183,14 @@ alias gl='git log'
 
 alias o='sudo chown -R eli:eli .'
 alias a='source venv/bin/activate'
-
+alias tl='tmux ls'
+function ta {
+    if [ -z "$1" ]; then
+        tmux a -t 0
+    else
+        tmux a -t $1
+    fi
+}
 
 # Set up PS1 with git branch
 
