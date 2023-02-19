@@ -11,6 +11,7 @@ set shiftwidth=4  "this is the level of autoindent, adjust to taste
 set ruler
 set number
 set backspace=indent,eol,start
+set pastetoggle=<F2>
 
 " set visualbell
 " Uncomment below to make screen not flash on error
