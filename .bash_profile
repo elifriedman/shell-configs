@@ -122,6 +122,7 @@ fi
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # commandline editing
 set -o emacs    # emacs style command line mode (default)
+shopt -s direxpand
 #set -o vi      # vi style command line mode
 export VISUAL=vim
 export EDITOR=$VISUAL
@@ -155,7 +156,7 @@ function cl {
     ls;
 }
 
-calc ()
+function calc ()
 {
     python3 -c "import math;print($1)"
 }
@@ -181,9 +182,19 @@ alias gp='git push'
 alias gpl='git pull'
 alias gl='git log'
 
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias o='sudo chown -R eli:eli .'
-alias a='source venv/bin/activate'
 alias tl='tmux ls'
+
+
+w=/mnt/c/Users/Eli/
+function a {
+    if [ -z "$1" ]; then 
+        source venv/bin/activate
+    else
+        source ${1}/venv/bin/activate
+    fi
+}
 function ta {
     if [ -z "$1" ]; then
         tmux a -t 0
