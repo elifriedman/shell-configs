@@ -183,8 +183,9 @@ alias gpl='git pull'
 alias gl='git log'
 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias o='sudo chown -R eli:eli .'
 alias tl='tmux ls'
+alias gpt='/home/eli/command_line_chatgpt/venv/bin/gpt'
+alias dalle='/home/eli/command_line_chatgpt/venv/bin/dalle'
 
 
 w=/mnt/c/Users/Eli/
@@ -208,10 +209,6 @@ function ta {
 parse_git_branch () {
     git rev-parse --symbolic-full-name --abbrev-ref HEAD 2> /dev/null | sed 's#\(.*\)#(\1) #'
 }
-
-PS1_SCRIPT=$HOME/.shell-configs/ps1.py
-
-PS1='\[\033[1;34m\]$($PS1_SCRIPT) \[\033[0;34m\]$(parse_git_branch)\[\033[1;34m\]$ \[\033[00m\]'
 
 # To set the xterm font,
 # edit .SecureCRTstart
