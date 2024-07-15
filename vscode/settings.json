@@ -1,0 +1,38 @@
+{
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.fontSize": 18,
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-p>": false,
+        "<C-t>": false,
+        "<C-o>": true,
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "jupyter.askForKernelRestart": false,
+    "notebook.consolidatedRunButton": true,
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.formatOnType": true,
+        "editor.wordBasedSuggestions": "off",
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "black-formatter.args": [
+        "-l",
+        "100"
+    ],
+    "autoDocstring.docstringFormat": "sphinx",
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+}

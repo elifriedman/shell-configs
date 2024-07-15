@@ -1,0 +1,25 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+shift+e",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "f9",
+        "command": "notebook.execute",
+        "when": "!notebookHasSomethingRunning || config.notebook.globalToolbar && notebookInterruptibleKernel || !notebookInterruptibleKernel && notebookKernelCount > 0 || !notebookInterruptibleKernel && notebookKernelSourceCount > 0"
+    },
+    {
+        "key": "f9",
+        "command": "-editor.debug.action.toggleBreakpoint",
+        "when": "debuggersAvailable && disassemblyViewFocus || debuggersAvailable && editorTextFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    }
+]
