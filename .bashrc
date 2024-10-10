@@ -193,7 +193,9 @@ function a {
     if [ -z "$1" ]; then 
         source venv/bin/activate
     else
-        source ${1}/venv/bin/activate
+        if ! source "${1}/venv/bin/activate" 2>/dev/null; then
+            source "${1}/bin/activate"
+        fi
     fi
 }
 function ta {
