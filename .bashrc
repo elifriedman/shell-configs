@@ -189,14 +189,24 @@ alias dalle='/home/eli/command_line_chatgpt/venv/bin/dalle'
 
 
 w=/mnt/c/Users/Eli/
-function a {
-    if [ -z "$1" ]; then 
-        source venv/bin/activate
-    else
-        if ! source "${1}/venv/bin/activate" 2>/dev/null; then
-            source "${1}/bin/activate"
-        fi
-    fi
+a () {
+    local base="${1:-.}"
+
+    [ -d "$base" ] || { echo "Not a directory: $base"; return 1; }
+
+    # If argument supplied, first assume it IS the venv
+    [ "$base" != "." ] && [ -f "$base/bin/activate" ] \
+        && source "$base/bin/activate" && return
+
+    # Try common names
+    for d in "$base"/.venv "$base"/venv "$base"/*env; do
+        [ -f "$d/bin/activate" ] || continue
+        source "$d/bin/activate"
+        return
+    done
+
+    echo "No virtual environment found in: $base"
+    return 1
 }
 function ta {
     if [ -z "$1" ]; then
